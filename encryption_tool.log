@@ -1,0 +1,3 @@
+2023-08-15 03:40:28,013 - INFO - Encryption tool started.
+2023-08-15 03:41:24,722 - ERROR - An error occurred: Fernet key must be 32 url-safe base64-encoded bytes.
+2023-08-15 03:41:24,723 - INFO - Encryption tool completed.
