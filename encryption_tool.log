@@ -1,3 +1,6 @@
 2023-08-15 03:40:28,013 - INFO - Encryption tool started.
 2023-08-15 03:41:24,722 - ERROR - An error occurred: Fernet key must be 32 url-safe base64-encoded bytes.
 2023-08-15 03:41:24,723 - INFO - Encryption tool completed.
+2023-08-16 00:47:41,319 - INFO - Encryption tool started.
+2023-08-16 00:48:11,522 - INFO - File encrypted: /home/robert93/Ops401challenges-1/encryption_tool.log
+2023-08-16 00:48:11,523 - INFO - Encryption tool completed.
